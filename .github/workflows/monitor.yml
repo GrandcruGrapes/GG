@@ -1,9 +1,9 @@
 name: idealwine lot monitor  #
 
 on:
+  workflow_dispatch:        # allow manual trigger
   schedule:
     - cron: "0 8 * * *"   # daily at 08:00 UTC
-  workflow_dispatch:        # allow manual trigger
 
 jobs:
   monitor:
@@ -19,4 +19,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run monitor
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         run: python monitor.py
