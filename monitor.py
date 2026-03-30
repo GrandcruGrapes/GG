@@ -7,8 +7,11 @@ import json
 import os
 import datetime
 
-ALGOLIA_APP_ID  = "QYOXXVLLKU"
-ALGOLIA_API_KEY = "8319a3608b7579514df153d9c8ba64bd"
+ALGOLIA_APP_ID  = os.environ.get("ALGOLIA_APP_ID",  "QYOXXVLLKU")
+ALGOLIA_API_KEY = os.environ.get("ALGOLIA_API_KEY", "8319a3608b7579514df153d9c8ba64bd")
+GMAIL_ADDRESS   = os.environ.get("GMAIL_ADDRESS",   "")
+GMAIL_APP_PW    = os.environ.get("GMAIL_APP_PW",    "")
+MAIL_TO         = os.environ.get("MAIL_TO",         "")
 AUCTION_COSTS   = 1.215
 SEEN_FILE       = "seen_lots.json"
 
